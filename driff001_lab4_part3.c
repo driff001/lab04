@@ -27,6 +27,9 @@ void Tick(){
    else if( ((PINA & 0b10) == 2)  && (count == 1) ){
         S_State = S_Press2;
    }
+   if(PORTB == 0b01){  
+   PORTB == 0b01;
+   }
    else {
         S_State = S_Lock;
    }   
