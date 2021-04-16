@@ -15,7 +15,7 @@ void Tick(){
    if(PINA == 0b00){
       S_State = S_Wait;
    }
-   else if( ((PINA & 0b01) == 1)  && (PORTC < 8) ){
+   else if( ((PINA & 0b01) == 1)  && (PORTC < 9) ){
         
         S_State = S_Press1;
    }
