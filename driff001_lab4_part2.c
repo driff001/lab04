@@ -4,8 +4,8 @@
 #endif
 
 void Tick();
-int count = 0;
-enum S_STATES { S_Wait, S_Press1, S_Press2,S_Press3} S_State;
+
+enum S_STATES { S_Wait, S_Press1, S_Press2,S_Press3,S_PressWait} S_State;
 void Tick(){
    switch(S_State) //transistions
    {
@@ -17,8 +17,8 @@ void Tick(){
       S_State = S_Wait;
       count = 0;
    }
-   if( ((PINA & 0b01) == 1)  && (PORTC < 9)  && count == 0 ){
-        ++count;
+   if( ((PINA & 0b01) == 1)   ){
+        
         S_State = S_Press1;
    }
    else if( ((PINA & 0b10) == 1)  && (PORTC > 0) ){
@@ -33,8 +33,8 @@ void Tick(){
    if(PINA == 0b00){
    S_State = S_Wait;
    }
-   else{
-   S_State = S_Press1;  
+   else if ( PINA == 0b01){
+   S_State = S_PressWait;  
    }
    break;
    
@@ -42,11 +42,15 @@ void Tick(){
    if(PINA == 0b00){
    S_State = S_Wait;
    }
-   else{
-   S_State = S_Press2;  
+   
+   else if ( PINA == 0b10){
+   S_State = S_PressWait;  
    }
    break;
    
+   
+		   
+		   
    case S_Press3: //increment state
    if(PINA == 0b00){
    S_State = S_Wait;
@@ -54,7 +58,16 @@ void Tick(){
    else{
    S_State = S_Press3;
    }
-	
+   
+   case S_PressWeight: 
+   if (PINA == 0b00){
+   S_State = S_Wait;
+   }   
+   else{
+   S_State = S_PressWeight;
+   }
+   break;
+		   
    default:
    break;
    }
@@ -62,18 +75,24 @@ void Tick(){
    switch(S_State) //State actions  
    {
       case S_Press1:
+      if (PORTC < 9){
       PORTC += 0b01;
+      }
       break;
       
       case S_Wait: //wait state
       break;
       
       case S_Press2: //incrment state
+      if (PORTC > 0){		   
       PORTC -= 0b01;
+      }
       break;
       
       case S_Press3: //incrment state
       PORTC = 0b00;
+      break; 
+      case S_PressWeight:
       break;
         
       default:
