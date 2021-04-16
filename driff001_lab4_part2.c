@@ -34,6 +34,10 @@ void Tick(){
    else if ( PINA == 0b01){
    S_State = S_PressWait;  
    }
+   else if ( PINA == 0b10){
+   S_State = S_Press2;   
+   }	   
+   S_State = (PINA == 0x03)? S_Press3 : S_State;
    break;
    
    case S_Press2: //decrement state
@@ -44,6 +48,11 @@ void Tick(){
    else if ( PINA == 0b10){
    S_State = S_PressWait;  
    }
+   else if ( PINA == 0b01){
+   S_State = S_Press1;   
+   }	   
+   S_State = (PINA == 0x03)? S_Press3 : S_State;
+		   
    break;
    
    
