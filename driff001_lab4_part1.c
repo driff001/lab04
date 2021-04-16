@@ -12,7 +12,7 @@ void Tick(){
     
    
    
-   case SM1_Wait: //wait state
+   case S_Wait: //wait state
    if(PINA == 0b00){
       S_State = S_Wait;
    }
