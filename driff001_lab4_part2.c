@@ -23,7 +23,7 @@ void Tick(){
    else if( ((PINA & 0b10) == 2)  ){
         S_State = S_Press2;
    }
-   if( (PINA & 0b11) == 3 ){
+   if( (PINA == 0b11) ){
    	S_State = S_Press3;
    }  
    break;
