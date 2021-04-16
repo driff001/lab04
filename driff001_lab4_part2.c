@@ -27,7 +27,7 @@ void Tick(){
    	S_State = S_Press3;
    }  
   
-	   
+   S_State = (PINA == 0x03)? S_Press3 : S_State;
 	   
    break;
    
