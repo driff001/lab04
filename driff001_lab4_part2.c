@@ -22,7 +22,7 @@ void Tick(){
    if( ((PINA & 0b10) == 1)  && (PORTC > 0) ){
         S_State = S_Press2;
    }
-   if( (PINA & 0b11) == 3 ){
+   if( (PINA & 0b11) == 1 ){
    	S_State = S_Press3;
    }  
    break;
