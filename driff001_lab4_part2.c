@@ -22,11 +22,7 @@ void Tick(){
    }
    else if( PINA == 0b10  ){
         S_State = S_Press2;
-   }
-   else if ( PINA == 0b11){
-   	S_State = S_Press3;
    }  
-  
    S_State = (PINA == 0x03)? S_Press3 : S_State;
 	   
    break;
