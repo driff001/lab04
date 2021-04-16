@@ -25,6 +25,7 @@ void Tick(){
         S_State = S_Press1;
    }
    else if( ((PINA & 0b10) == 1)  && (count == 1) ){
+	printf("bruh");
         S_State = S_Press2;
    }
    else if(PORTB == 0b01){  
