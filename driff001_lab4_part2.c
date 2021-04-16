@@ -63,21 +63,20 @@ void Tick(){
 		   
 		   
    case S_Press3: //increment state
-   if(PINA == 0b00){
-   S_State = S_Wait;
+      if(PINA == 0b00){
+      S_State = S_Wait;
    }
+   else if( PINA == 0b01   ){
+        
+        S_State = S_Press1;
+   }
+   else if( PINA == 0b10  ){
+        S_State = S_Press2;
+   }  
    else{
    S_State = S_Press3;
-   }
-   break;
+   }		   
 		   
-   case S_PressWait: 
-   if (PINA == 0b00){
-   S_State = S_Wait;
-   }   
-   else{
-   S_State = S_PressWait;
-   }
    S_State = (PINA == 0x03)? S_Press3 : S_State;
    break;
 		   
