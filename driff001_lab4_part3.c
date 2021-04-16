@@ -28,7 +28,7 @@ void Tick(){
         S_State = S_Press2;
    }
    if(PORTB == 0b01){  
-   S_State = S_Press1;
+   S_State = S_Press2;
    }
    else {
         S_State = S_Lock;
