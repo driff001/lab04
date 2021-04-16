@@ -3,9 +3,9 @@
 #include "simAVRHeader.h"
 #endif
 
+void Tick();
 
-
-enum STATES { S_Wait, S_Press1, S_Press2} S_State;
+enum S_STATES { S_Wait, S_Press1, S_Press2} S_State;
 void Tick(){
    switch(S_State) //transistions
    {
@@ -70,13 +70,11 @@ void Tick(){
 
 int main(void) {
 S_State = S_Wait;
-Tick();
-
-
-
-
-
-
+PORTB = 0b01;
+   
+ while(1){  
+ Tick();
+ }
 
 
 
