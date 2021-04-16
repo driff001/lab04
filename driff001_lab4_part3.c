@@ -20,7 +20,7 @@ void Tick(){
    S_State = S_Lock;
    }
 
-   if( (PINA & 0b100) == 4 ){
+   if( (PINA & 0b100) == 1 ){
         
         S_State = S_Press1;
    }
