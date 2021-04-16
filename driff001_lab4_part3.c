@@ -1,4 +1,4 @@
-#include <avr/io.h>
+nclude <avr/io.h>
 #ifdef _SIMULATE_
 #include "simAVRHeader.h"
 #endif
@@ -79,8 +79,6 @@ void Tick(){
       case S_Lock:
       B = 0;
       count = 0;
-      break;
-
       default:
       break;
 
@@ -91,7 +89,7 @@ void Tick(){
 
 int main(void) {
 S_State = S_Wait;
-PORTB = 0;
+PORTB = 0b01;
    
  while(1){  
  Tick();

@@ -11,4 +11,3 @@ tests = [ {'description': 'PINA: 0x00,PINB: 0x00 0x00 => PORTC: 0x00',
     'expected': [('PORTB',0x08)],
     },
     ]
-
