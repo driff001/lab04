@@ -4,8 +4,8 @@ nclude <avr/io.h>
 #endif
 
 void Tick();
-
-enum S_STATES { S_Wait,S_Lock S_Press1, S_Press2} S_State;
+int count = 0;
+enum S_STATES { S_Wait,S_Lock, S_Press1, S_Press2} S_State;
 void Tick(){
    switch(S_State) //transistions
    {
@@ -77,7 +77,7 @@ void Tick(){
       break;
      
       case S_Lock:
-      B = 0;
+      PORTB = 0;
       count = 0;
       default:
       break;
