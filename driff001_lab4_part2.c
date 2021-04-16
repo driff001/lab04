@@ -19,10 +19,10 @@ void Tick(){
         
         S_State = S_Press1;
    }
-   else if( ((PINA & 0b10) == 0b10)  && (PORTC > 0b00) ){
+   else if( ((PINA & 0b10) == 1)  && (PORTC > 0b00) ){
         S_State = S_Press2;
    }
-   else if( (PINA & 0b11) == 0b11 ){
+   else if( (PINA & 0b11) == 1 ){
    	S_State = S_Press3;
    }  
    break;
