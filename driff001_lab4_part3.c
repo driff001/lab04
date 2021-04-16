@@ -28,7 +28,7 @@ void Tick(){
         S_State = S_Press2;
    }
    if(PORTB == 0b01){  
-   PORTB == 0b01;
+   S_State = S_Press1;
    }
    else {
         S_State = S_Lock;
@@ -95,7 +95,7 @@ void Tick(){
 
 int main(void) {
 S_State = S_Wait;
-PORTB = 0b00;
+PORTB = 0b01;
    
  while(1){  
  Tick();
