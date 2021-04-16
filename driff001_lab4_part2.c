@@ -58,12 +58,12 @@ void Tick(){
    S_State = S_Press3;
    }
    
-   case S_PressWeight: 
+   case S_PressWait: 
    if (PINA == 0b00){
    S_State = S_Wait;
    }   
    else{
-   S_State = S_PressWeight;
+   S_State = S_PressWait;
    }
    break;
 		   
@@ -91,7 +91,7 @@ void Tick(){
       case S_Press3: //incrment state
       PORTC = 0b00;
       break; 
-      case S_PressWeight:
+      case S_PressWait:
       break;
         
       default:
