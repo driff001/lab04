@@ -86,9 +86,10 @@ void Tick(){
 
 int main(void) {
 S_State = S_Wait;
-PORTC = 0b111;
+
    
  while(1){
+ PORTC = 0b111;
  Tick();
  }
 
