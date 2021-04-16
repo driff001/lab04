@@ -23,7 +23,7 @@ void Tick(){
    else if( ((PINA & 0b10) == 2)  ){
         S_State = S_Press2;
    }
-   if( (PINA == 0b11) ){
+   else{
    	S_State = S_Press3;
    }  
    break;
@@ -89,7 +89,9 @@ void Tick(){
       break;
       
       case S_Press3: //incrment state
+      if (PINA == 0b11){
       PORTC = 0b00;
+      }
       break; 
       case S_PressWait:
       break;
