@@ -20,11 +20,11 @@ void Tick(){
    S_State = S_Lock;
    }
 
-   if( (PINA & 0b100) == 4 ){
+   if( PINA == 0b100 ){
         
         S_State = S_Press1;
    }
-   else if( ((PINA & 0b10) == 2)  ){
+   else if( (PINA == 0b10) && count == 1  ){
         S_State = S_Press2;
    }
 
@@ -93,7 +93,7 @@ void Tick(){
 
 int main(void) {
 S_State = S_Wait;
-PORTB = 0b00;
+PORTB = 0b01;
    
  while(1){  
  Tick();
