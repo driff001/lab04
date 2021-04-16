@@ -4,6 +4,7 @@
 #endif
 
 void Tick();
+int count = 0;
 enum S_STATES { S_Wait, S_Press1, S_Press2,S_Press3} S_State;
 void Tick(){
    switch(S_State) //transistions
@@ -14,9 +15,10 @@ void Tick(){
    case S_Wait: //wait state
    if(PINA == 0b00){
       S_State = S_Wait;
+      count = 0;
    }
-   if( ((PINA & 0b01) == 1)  && (PORTC < 9) ){
-        
+   if( ((PINA & 0b01) == 1)  && (PORTC < 9)  && count == 0 ){
+        ++count;
         S_State = S_Press1;
    }
    else if( ((PINA & 0b10) == 1)  && (PORTC > 0) ){
