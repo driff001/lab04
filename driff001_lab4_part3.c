@@ -50,9 +50,6 @@ void Tick(){
    }
    break;
    
-   default:
-   break;
-   }
    case S_Lock: //increment state
    if(PINA == 0b00){
    S_State = S_Wait;
@@ -60,6 +57,12 @@ void Tick(){
    else{
    S_State = S_Lock;
    }
+   break;		  
+		   
+   default:
+   break;
+   }
+   
    
    switch(S_State) //State actions  
    {
