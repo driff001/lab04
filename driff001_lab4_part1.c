@@ -13,7 +13,7 @@ void Tick(){
    
    
    case SM1_Wait: //wait state
-   if(!A0){
+   if(PINA == 0b00){
       S_State = S_Wait;
    }
    else if( ((PINA & 0b01) == 1)  && (PORTB == 0b01) ){
@@ -26,7 +26,7 @@ void Tick(){
    break;
    
    case S_Press1: //increment state
-   if(!A0){
+   if(PINA == 0b00){
    S_State = S_Wait;
    }
    else{
@@ -35,7 +35,7 @@ void Tick(){
    break;
    
    case S_Press2: //decrement state
-   if(!A0){
+   if(PINA == 0b00;){
    S_State = S_Wait;
    }
    else{
