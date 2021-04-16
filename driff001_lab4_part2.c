@@ -70,7 +70,7 @@ void Tick(){
       PORTC -= 0b01;
       break;
       
-      case S_Press2: //incrment state
+      case S_Press3: //incrment state
       PORTC = 0b00;
       break;
         
