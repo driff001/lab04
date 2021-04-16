@@ -15,7 +15,6 @@ void Tick(){
    case S_Wait: //wait state
    if(PINA == 0b00){
       S_State = S_Wait;
-      count = 0;
    }
    if( ((PINA & 0b01) == 1)   ){
         
