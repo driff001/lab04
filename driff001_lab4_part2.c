@@ -16,11 +16,11 @@ void Tick(){
    if(PINA == 0b00){
       S_State = S_Wait;
    }
-   if( ((PINA & 0b01) == 1)   ){
+   if( PINA == 0b01   ){
         
         S_State = S_Press1;
    }
-   else if( ((PINA & 0b10) == 2)  ){
+   else if( PINA == 0b10  ){
         S_State = S_Press2;
    }
    else{
