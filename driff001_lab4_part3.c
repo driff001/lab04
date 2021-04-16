@@ -82,7 +82,7 @@ void Tick(){
      
       case S_Lock:
       PORTB = 0;
-      count = 0;
+      
       default:
       break;
 
