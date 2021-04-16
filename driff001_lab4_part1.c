@@ -35,7 +35,7 @@ void Tick(){
    break;
    
    case S_Press2: //decrement state
-   if(PINA == 0b00;){
+   if(PINA == 0b00){
    S_State = S_Wait;
    }
    else{
