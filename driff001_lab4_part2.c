@@ -16,7 +16,7 @@ void Tick(){
    if(PINA == 0b00){
       S_State = S_Wait;
    }
-   if( PINA == 0b01   ){
+   else if( PINA == 0b01   ){
         
         S_State = S_Press1;
    }
@@ -26,6 +26,9 @@ void Tick(){
    else if ( PINA == 0b11){
    	S_State = S_Press3;
    }  
+  
+	   
+	   
    break;
    
    case S_Press1: //increment state
