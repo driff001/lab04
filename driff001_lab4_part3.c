@@ -23,7 +23,7 @@ void Tick(){
         
         S_State = S_Press1;
    }
-   else if( (PINA == 0b10) && count == 1  ){
+   else if( (PINA == 0b10)  ){
         S_State = S_Press2;
    }
 
@@ -40,7 +40,7 @@ void Tick(){
    S_State = S_Lock;
    }	   
    else{
-   S_State = S_Press1;  
+   S_State = S_PressWait1;  
    }
    break;
    
@@ -53,7 +53,19 @@ void Tick(){
    S_State = S_Press2;  
    }
    break;
-   
+		   
+   case S_PressWait1: 
+   if (PINA == 0b00){
+   S_State = S_Wait;
+   }
+   else if(PINA == 0b10){
+   S_State = S_Press2;
+   }
+   else{
+   S_State = S_PressWait1;
+   }
+      
+		   
    case S_Lock: //increment state
    break;		  
 		   
@@ -66,6 +78,7 @@ void Tick(){
    {
       case S_Press1:
       ++count;
+      PORTB = PORTB;
       break;
       
       case S_Wait: //wait state
@@ -73,8 +86,11 @@ void Tick(){
       break;
       
       case S_Press2: //incrment state
+      if (count == 1){		   
       PORTB = 0b01;
       count = 0;
+      }  
+      PORTB = PORTB;
       break;
      
       case S_Lock:
