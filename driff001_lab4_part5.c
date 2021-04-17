@@ -116,7 +116,6 @@ void Tick(){
    switch(S_State) //State actions  
    {
       case S_Press1:
-      if (count == 0){
       ++count;
       }
       PORTB = PORTB;
