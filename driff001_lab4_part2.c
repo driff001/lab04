@@ -2,10 +2,7 @@
 #ifdef _SIMULATE_
 #include "simAVRHeader.h"
 #endif
-
-void Tick();
-
-enum S_STATES { S_Wait, S_Press1, S_Press2,S_Press3,S_PressWait} S_State;
+enum S_STATES { S_Wait, S_Press1, S_Press2,S_Press3,S_PressWait1, S_PressWait2} S_State;
 void Tick(){
    switch(S_State) //transistions
    {
@@ -30,7 +27,7 @@ void Tick(){
           S_State = S_Wait;
         }
         else if ( PINA == 0b01){
-          S_State = S_PressWait;
+          S_State = S_PressWait1;
         }
         else if(PINA == 0x02){
           S_State = S_Press2;
@@ -43,7 +40,7 @@ void Tick(){
         S_State = S_Wait;
         }
         else if ( PINA == 0b10){
-          S_State = S_PressWait;
+          S_State = S_PressWait2;
         }
         else if(PINA == 0x01){
           S_State = S_Press1;
@@ -62,17 +59,31 @@ void Tick(){
             S_State = S_Press2;
         }
         else{
-            S_State = S_Press3;
+            S_State = S_Wait;
+        }
+        break;
+
+    case S_PressWait1: 
+        if (PINA == 0b00){
+          S_State = S_Wait;
+        }
+        else if(PINA == 0x02){
+          S_State = S_Press2;
+        }
+        else{
+          S_State = S_PressWait1;
         }
         S_State = (PINA == 0x03)? S_Press3 : S_State;
         break;
-
-    case S_PressWait: 
+    case S_PressWait2:
         if (PINA == 0b00){
-        S_State = S_Wait;
+          S_State = S_Wait;
+        }
+        else if(PINA == 0x01){
+          S_State = S_Press1;
         }
         else{
-        S_State = S_PressWait;
+          S_State = S_PressWait2;
         }
         S_State = (PINA == 0x03)? S_Press3 : S_State;
         break;
@@ -102,23 +113,24 @@ void Tick(){
         }
         break; 
 
-      case S_PressWait:
+      case S_PressWait1:
+        break;
+
+      case S_PressWait2:
         break;
    }
 }
 
 
-
 int main(void) {
-S_State = S_Wait;
-PORTC = 0b111;
-   
- while(1){
- 
- Tick();
- }
-
-
-
-return 0;
+    /* Insert DDR and PORT initializations */
+    DDRA = 0x00; PORTA = 0x00;
+    DDRC = 0xFF; PORTC = 0x07;
+    /* Insert your solution below */
+    S_State = S_Wait;
+    while (1) {
+        Tick();
+    }
+    return 1;
 }
+
