@@ -143,7 +143,6 @@ void Tick(){
       break;
 		   
       case S_Lock:
-      PORTB = 0;
       count = 0;
       break;
 		   
