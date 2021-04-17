@@ -29,7 +29,7 @@ void Tick(){
       S_State = S_Press3;
    }
    else {
-       PORTB = 0b01;
+       S_State = S_Lock;
    }   
    break;
    
@@ -92,6 +92,7 @@ void Tick(){
    S_State = S_Wait;
    }
    else if(PINA == 0b01){
+   PORTB = 0b01;
    S_State = S_Press3;
    }
    else if(PINA == 0b10){
