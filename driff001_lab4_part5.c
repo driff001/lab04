@@ -117,7 +117,7 @@ void Tick(){
    {
       case S_Press1:
       ++count;
-      }
+ 
       PORTB = PORTB;
       break;
       
@@ -141,9 +141,12 @@ void Tick(){
       }   
       PORTB = PORTB;
       break;
+		   
       case S_Lock:
       PORTB = 0;
       count = 0;
+      break;
+		   
       default:
       break;
 
