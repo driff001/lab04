@@ -126,7 +126,8 @@ void Tick(){
       break;
       
       case S_Press2: //incrment state
-      if (count == 2){		    
+      if (count == 2){
+      PORTB = 0b01;
       ++count;
       }   
       PORTB = PORTB;
@@ -136,7 +137,7 @@ void Tick(){
       if (count == 1){		    
       ++count;
       }
-      if (count == 2){
+      if (count == 3){
       PORTB = 0b01;
       }   
       PORTB = PORTB;
