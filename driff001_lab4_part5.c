@@ -24,14 +24,12 @@ void Tick(){
    }
    else if( (PINA == 0b10)  ){	
         S_State = S_Press2;
-	PORTB = 0b01;
    } 
    else if ( PINA == 0b01){
-      PORTB = 0b01;
       S_State = S_Press3;
    }
    else {
-        S_State = S_Lock;
+       PORTB = 0b01;
    }   
    break;
    
