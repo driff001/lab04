@@ -27,7 +27,7 @@ void Tick(){
 	PORTB = 0b01;
    } 
    else if ( PINA == 0b01){
-	 
+      PORTB = 0b01;
       S_State = S_Press3;
    }
    else {
