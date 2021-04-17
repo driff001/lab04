@@ -157,7 +157,7 @@ void Tick(){
 
 int main(void) {
 S_State = S_Wait;
-PORTB = 0b00;
+PORTB = 0b01;
    
  while(1){  
  Tick();
