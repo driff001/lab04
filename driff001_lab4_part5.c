@@ -136,7 +136,7 @@ void Tick(){
       if (count == 1){		    
       ++count;
       }
-      if (count == 3){
+      if (count == 2){
       PORTB = 0b01;
       }   
       PORTB = PORTB;
