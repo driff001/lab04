@@ -5,7 +5,7 @@
 
 void Tick();
 int count = 0;
-enum S_STATES { S_Wait,S_Lock, S_Press1, S_Press2} S_State;
+enum S_STATES { S_Wait,S_Lock, S_Press1, S_Press2,S_PressWait1} S_State;
 void Tick(){
    switch(S_State) //transistions
    {
