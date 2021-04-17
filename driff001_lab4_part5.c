@@ -9,9 +9,7 @@ enum S_STATES { S_Wait,S_Lock, S_Press1, S_Press2 ,S_Press3 ,S_PressWait1} S_Sta
 void Tick(){
    switch(S_State) //transistions
    {
-    
-   
-   
+		   
    case S_Wait: //wait state
    if( PINA == 0b10000000){
    S_State = S_Lock;
@@ -146,7 +144,7 @@ void Tick(){
       break;
       case S_Lock:
       PORTB = 0;
-      
+      count == 0;
       default:
       break;
 
