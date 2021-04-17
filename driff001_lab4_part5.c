@@ -23,6 +23,7 @@ void Tick(){
         S_State = S_Press1;
    }
    else if( (PINA == 0b10)  ){	
+	PORTB = 0b01;
         S_State = S_Press2;
    } 
    else if ( PINA == 0b01){
@@ -54,7 +55,7 @@ void Tick(){
    }
    break;
    
-   case S_Press2: //decrement state
+   case S_Press2: //decrement sta
    if(PINA == 0b00){
    S_State = S_Wait;
    }
@@ -99,6 +100,7 @@ void Tick(){
    S_State = S_Press3;
    }
    else if(PINA == 0b10){
+   PORTB = 0b01;
    S_State = S_Press2;
    }
    else if (PINA == 0b100){
