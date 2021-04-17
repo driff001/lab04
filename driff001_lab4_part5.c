@@ -136,7 +136,7 @@ void Tick(){
       if (count == 1){		    
       ++count;
       }
-      else if (count == 3){
+      if (count == 3){
       PORTB = 0b01;
       }   
       PORTB = PORTB;
@@ -157,7 +157,7 @@ void Tick(){
 
 int main(void) {
 S_State = S_Wait;
-PORTB = 0b01;
+PORTB = 0b00;
    
  while(1){  
  Tick();
