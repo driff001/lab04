@@ -28,8 +28,11 @@ void Tick(){
    else if ( PINA == 0b01){
       S_State = S_Press3;
    }
+   else if (PINA == 0x03){
+     S_State = S_Lock;
+   }	   
    else {
-       S_State = S_Lock;
+   PORTB = 0b01;
    }   
    break;
    
